@@ -3,8 +3,8 @@ services:
     name: funverse360-sabareesh-creator
     runtime: node
     plan: free
-    buildCommand: npm ci --prefix backend && npm ci --prefix frontend && npm run build --prefix frontend
-    startCommand: npm run start --prefix backend
+    buildCommand: npm ci --prefix backend && cd frontend && npm ci && npm run build
+    startCommand: cd backend && npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
