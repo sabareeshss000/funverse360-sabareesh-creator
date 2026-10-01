@@ -6,7 +6,7 @@ export const connectDB = async () => {
   const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/funverse360';
   
   try {
-    console.log(`[DB] Attempting connection to MongoDB at: ${uri}`);
+    console.log('[DB] Attempting MongoDB connection.');
     await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 2500,
     });
