@@ -1,6 +1,7 @@
 import express from 'express';
 import http from 'http';
 import path from 'node:path';
+import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { Server } from 'socket.io';
 import cors from 'cors';
@@ -73,7 +74,7 @@ app.use('/api/rewards', rewardRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/admin', adminRoutes);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || fs.existsSync(frontendDist)) {
   app.use(express.static(frontendDist));
   app.get('*', (req, res, next) => {
     if (req.path === '/api' || req.path.startsWith('/api/')) return next();
