@@ -6,6 +6,7 @@ import { CartProvider } from './context/CartContext';
 
 import Navbar from './components/Navbar';
 import BottomNavigation from './components/BottomNavigation';
+import ChatbotWidget from './components/ChatbotWidget';
 
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -87,6 +88,7 @@ const AppRoutes = () => {
         </Routes>
       </main>
       <BottomNavigation />
+      <ChatbotWidget />
     </div>
   );
 };

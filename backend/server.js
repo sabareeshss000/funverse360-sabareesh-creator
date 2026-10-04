@@ -25,6 +25,7 @@ import bookingRoutes from './routes/bookingRoutes.js';
 import rewardRoutes from './routes/rewardRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import chatbotRoutes from './routes/chatbotRoutes.js';
 
 import { setSocketIO } from './services/notificationService.js';
 import { pulseCrowdData, getLiveCrowdData } from './services/crowdPredictionService.js';
@@ -73,6 +74,7 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/rewards', rewardRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/chatbot', chatbotRoutes);
 
 if (process.env.NODE_ENV === 'production' || fs.existsSync(frontendDist)) {
   app.use(express.static(frontendDist));
