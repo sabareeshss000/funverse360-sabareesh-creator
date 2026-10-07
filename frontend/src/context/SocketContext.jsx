@@ -14,7 +14,8 @@ export const SocketProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const newSocket = io(window.location.origin, {
+    const socketHost = import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL?.replace(/\/api\/?$/, '') || window.location.origin;
+    const newSocket = io(socketHost, {
       reconnectionAttempts: 5,
       timeout: 5000
     });
